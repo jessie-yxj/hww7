@@ -1,0 +1,81 @@
+---
+title: "MA [46]15 Homework 7"
+author: "Daniel Sussman"
+format: gfm
+---
+
+
+## Question 1
+
+First, we're using the `tidycensus` package to download the total population and Black and African American populations for each block group region in Suffolk County, MA.
+
+```{r q1-setup}
+suppressPackageStartupMessages(library(tidyverse))
+library(tidycensus)
+library(sf)
+v2020 <- load_variables(2020, "pl", cache = TRUE)
+```
+
+**[[**
+Search the `v2020` table to find the variables corresponding to total population and Black or African American population.
+Use the `get_decennial` function to download these variables from the 2020 census for Suffolk County, MA with the block group geography.
+Be sure to include the geometry.
+Manipulate the table to have columns giving the geometry, GEOID, Total population and Black of African American population.
+The resulting table should have 681 rows.
+Summarize this table to show the Total population and the total Black or African American population in Suffolk County, making sure to drop the geometry.
+**]]**
+
+```{r q1}
+
+```
+
+
+## Question 2
+
+Next, we're using data derived from a data set of [approved building permits in Boston](https://data.boston.gov/dataset/approved-building-permits).
+
+**[[**
+Read in the "approved_building_permits_2020.rds" and convert the `long` and `lat` columns to be simple features and set the CRS to match the data from the census.
+Filter the census data set to only keep block groups where there was at least one approved building permit and where the total population is at least 500.
+**]]**
+
+```{r q2}
+
+```
+
+
+
+## Question 3
+
+We combine the data to make map and scatter plot below.
+
+**[[**
+Using the filtered census data and the building permit make a map showing each block group area with fill color determined by the proportion of the population that identifies as Black or African American.
+Use the binned viridis color scheme for the fill and set `alpha = 0.5`.
+Plot the point locations of the approved building on top of this with `alpha = .1, size = .1`.
+Use `theme_void`.
+**]]**
+
+```{r q3}
+
+```
+
+
+## Question 4
+
+**[[**
+Perform a spatial left join of the filtered census data and the building permit data, drop the geometry and summarize each block group with the total number of permits and the total value of the permits for that block group. Make sure to keep the two population columns.
+
+Make a scatter plot with the proportion of the population that identifies as Black or African American on the x-axis and the number of permits on the y-axis with the points colored according to the total value of the permits.
+Use the binned viridis color palette with `trans = "log10"`.
+Finally, add a line of best fit to the plot.
+**]]**
+
+
+```{r q4}
+
+```
+
+**[[**
+Write one or two sentences describing your observations based on the map from question 3 and the plot from question 4.
+**]]**
